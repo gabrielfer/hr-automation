@@ -1,0 +1,52 @@
+plugins {
+    id 'java'
+}
+
+group 'automation-poc'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.11.0'
+    testCompile group: 'org.seleniumhq.selenium', name: 'selenium-server', version: '3.12.0'
+    testCompile group: 'org.seleniumhq.selenium', name: 'selenium-remote-driver', version: '3.11.0'
+    testCompile group: 'io.cucumber', name: 'cucumber-core', version: '2.4.0'
+    testCompile group: 'info.cukes', name: 'cucumber-html', version: '0.2.6'
+    testCompile group: 'io.cucumber', name: 'cucumber-java', version: '2.4.0'
+    testCompile group: 'info.cukes', name: 'cucumber-junit', version: '1.2.5'
+    testCompile group: 'io.cucumber', name: 'cucumber-jvm-deps', version: '1.0.6'
+    testCompile group: 'info.cukes', name: 'gherkin', version: '2.12.2'
+    testCompile group: 'io.cucumber', name: 'tag-expressions', version: '1.1.1'
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-server', version: '3.12.0'
+    testCompile 'io.rest-assured:rest-assured:3.1.0'
+    testCompile 'io.rest-assured:spring-mock-mvc:3.1.0'
+    testCompile group: 'com.jayway.restassured', name: 'rest-assured', version: '2.9.0'
+
+
+}
+
+test {
+    // we want display the following test events
+    testLogging {
+        events "PASSED", "STARTED", "FAILED", "SKIPPED"
+    }
+    useJUnit {
+        systemProperty "dashboard-tests", "true"
+    }
+}
+
+task dashboardTest(type: Test) {
+    group = "verification"
+    testLogging {
+        events "PASSED", "STARTED", "FAILED", "SKIPPED"
+    }
+    useJUnit {
+        systemProperty "dashboard-tests", "true"
+    }
+}
