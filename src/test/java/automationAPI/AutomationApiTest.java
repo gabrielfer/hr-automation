@@ -53,8 +53,4 @@ public class AutomationApiTest {
     public void testCepWithChars(){
         expect().statusCode(404).when().get("https://viacep.com.br/ws/" + cepWithChars + "/json/");
     }
-
-
-
-
 }

@@ -20,7 +20,6 @@ public class EmployeeListPageObject extends AbstractPage {
     private static final By LOCATOR_EMPLOYEE_LIST_PAGE_DELETE_CONFIRMATION_MODAL = By.id("deleteConfModal");
     private static final By LOCATOR_EMPLOYEE_LIST_PAGE_DELETE_CONFIRMATION_MODAL_OK_BUTTON = By.id("dialogDeleteBtn");
 
-
     public void verifyEmployeeListPage() {
         Assert.assertTrue(driver.findElement(LOCATOR_EMPLOYEE_LIST_PAGE_SEARCH_FORM).isDisplayed());
         Assert.assertTrue(driver.findElement(LOCATOR_EMPLOYEE_LIST_PAGE_RESULT_TABLE).isDisplayed());
@@ -79,5 +78,4 @@ public class EmployeeListPageObject extends AbstractPage {
         WebDriverWait wait = new WebDriverWait(driver, 20);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(),'Successfully Deleted')]")));
     }
-
 }

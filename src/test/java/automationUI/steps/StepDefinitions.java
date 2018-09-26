@@ -96,7 +96,6 @@ public class StepDefinitions {
         employeeListPage.fillEmployeeNameField(employeeName);
         employeeListPage.fillEmployeeIdField(employeeId);
         employeeListPage.clickSearchButton();
-
     }
 
     @Given("^\"([^\"]*)\" with employee id \"([^\"]*)\" is displayed$")

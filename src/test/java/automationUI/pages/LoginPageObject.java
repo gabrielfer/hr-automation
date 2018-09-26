@@ -32,8 +32,6 @@ public class LoginPageObject extends AbstractPage {
         Assert.assertTrue(driver.findElement(LOCATOR_LOGIN_BUTTON).isDisplayed());
         driver.findElement(LOCATOR_LOGIN_BUTTON).click();
     }
-
-
 }
 
 
